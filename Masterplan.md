@@ -11,13 +11,13 @@ Functionality requested by Jan
 
 ### Jan
 In Progress
-* Linear Algebra
+* TODO
 
 Functionality requested by Kajus
 *
 
 ## Ideas
-*
+* TODO
 
 ## Plans
-*
+* TODO
