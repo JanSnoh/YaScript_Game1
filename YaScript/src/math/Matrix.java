@@ -1,7 +1,8 @@
 package math;
+import java.lang.Math
 
 class Matrix{
-  final float[][] val;
+  private final float[][] val;
   public final int rows;
   public final int cols;
   
@@ -30,6 +31,10 @@ class Matrix{
     for(int i = 0; i < nums.length; i++){
       val[i/cols][i%cols] = nums[i];
     }
+  }
+  
+  public static Matrix rotationMatrix2d(float angle) {
+	  return new Matrix(Math.cos(angle),- Math.sin(angle),Math.sin(angle),Math.cos(angle));
   }
   
   public Matrix add(Matrix b){
@@ -88,6 +93,10 @@ class Matrix{
       }
     }
     return r;
+  }
+  
+  void set(int row, int col, float val) {
+	  val[row][col] = val;
   }
   
   public float get(int row, int col){
