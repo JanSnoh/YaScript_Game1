@@ -49,7 +49,7 @@ public class Matrix {
      * @param cols number of entries per row
      * @param nums values
      */
-    public Matrix(int cols, float[] nums) {
+    public Matrix(int cols, double[] nums) {
         if (nums.length % cols != 0) {
             throw new IllegalArgumentException("This is not a full Matrix");
         }
@@ -206,12 +206,13 @@ public class Matrix {
         for (int row = 0; row < r.rows; row++) {
             int vcol = 0;
             for (int col = 0; col < r.cols; col++) {
-                if (row == deleteRow) {
+                if (vrow == deleteRow) {
                     vrow++;
                 }
-                if (col == deleteCol) {
+                if (vcol == deleteCol) {
                     vcol++;
                 }
+                assert (vrow < rows || vcol < cols);
                 r.set(row, col, get(vrow, vcol));
                 vcol++;
             }
