@@ -8,6 +8,7 @@ import java.util.concurrent.TimeUnit;
 
 
 import game.Game;
+import window.Window;
 /**
  * @author Jan
  *
