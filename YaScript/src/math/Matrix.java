@@ -1,7 +1,7 @@
 package math;
 
 class Matrix{
-  private final float[][] val;
+  final float[][] val;
   public final int rows;
   public final int cols;
   
