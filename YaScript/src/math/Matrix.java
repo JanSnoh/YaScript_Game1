@@ -246,7 +246,10 @@ public class Matrix {
         StringBuilder sb = new StringBuilder();
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                sb.append(Math.round(get(row, col) * 100.0) / 100.0).append(" ");
+                if (get(row, col) >= 0) {
+                    sb.append(' ');
+                }
+                sb.append(Math.round(get(row, col) * 100.0) / 100.0).append(' ');
             }
             sb.append('\n');
         }

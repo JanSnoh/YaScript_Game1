@@ -1,7 +1,5 @@
-package Tests;
+package math;
 
-import org.junit.jupiter.api.Test;
-import math.*;
 import org.junit.jupiter.api.Test;
 
 public class MathTest {
