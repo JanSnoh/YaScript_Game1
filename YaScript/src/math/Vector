@@ -1,0 +1,22 @@
+import math;
+
+class Vector extends Matrix{
+  
+  public Vector(int rows){
+    super(rows,1);
+  }
+  public Vector(float a, float b){
+    super(2,1);
+    val[0][0] = a;
+    val[1][0] = b;
+  }
+  
+  public float dot(Vector b){
+    return this.transpose().mult(b).get(0,0);
+  }
+  
+  public float get(int i){
+    return super.get(i,1);
+  }
+  
+}
