@@ -1,6 +1,4 @@
 package math;
-import java.lang.Math;
-import java.math.RoundingMode;
 
 /**
  * Implementation of Matrix calculus.
@@ -174,6 +172,10 @@ public class Matrix {
 
     }
 
+    /**
+     * If possible creates an inverse of the matrix. Otherwise throws exception.
+     * @return inverse Matrix
+     */
     public Matrix inverse() {
         double det = determinant();
         if (det == 0) {
