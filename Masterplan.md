@@ -1,8 +1,8 @@
-#Organisation
+# Organisation
 
 
-##Task distribution
-###Kajus
+## Task distribution
+### Kajus
 In Progress
 * Linear Algebra
 
@@ -16,8 +16,8 @@ In Progress
 Functionality requested by Kajus
 *
 
-##Ideas
+## Ideas
 *
 
-##Plans
+## Plans
 *
