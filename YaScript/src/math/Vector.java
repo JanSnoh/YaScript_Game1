@@ -3,7 +3,7 @@ package math;
 /**
  * An implementation of Vectors.
  */
-class Vector extends Matrix{
+public class Vector extends Matrix{
 
     /**
      * creates a Vector of a given length
@@ -31,6 +31,15 @@ class Vector extends Matrix{
      */
     public double dot(Vector b){
         return this.transpose().mult(b).get(0,0);
+    }
+
+    /**
+     * Multiply matrix with vector
+     * @param vector vector to multiply with.
+     * @return resulting Vector
+     */
+    public Vector vMult(Vector vector){
+        return (Vector) mult(vector);
     }
 
     /**

@@ -1,10 +1,11 @@
 package math;
 import java.lang.Math;
+import java.math.RoundingMode;
 
 /**
  * Implementation of Matrix calculus.
  */
-class Matrix {
+public class Matrix {
     private final double[][] val;
     public final int rows;
     public final int cols;
@@ -16,6 +17,9 @@ class Matrix {
      * @param cols columns
      */
     public Matrix(int rows, int cols) {
+        if (rows <= 0 || cols <= 0) {
+            throw new IllegalArgumentException("Matrices have positive size");
+        }
         this.rows = rows;
         this.cols = cols;
         val = new double[rows][cols];
@@ -149,6 +153,74 @@ class Matrix {
     }
 
     /**
+     * Calculates determinant of Matrix.
+     * @return determinant
+     */
+    public double determinant() {
+        if (rows != cols) {
+            throw new IllegalArgumentException("Must be a square Matrix");
+        }
+        if (rows == 1) {
+            return get(0, 0);
+        }else if (rows == 2) {
+            return get(0, 0) * get(1, 1) - get(1, 0) * get(0, 1);
+        } else {
+            double result = 0;
+            for (int column = 0; column < cols; column++) {
+                result += Util.signum(column) * get(0, column) * submatrix(0, column).determinant();
+            }
+            return result;
+        }
+
+    }
+
+    public Matrix inverse() {
+        double det = determinant();
+        if (det == 0) {
+            throw new IllegalArgumentException("Matrix not invertible");
+        }
+        Matrix cof = new Matrix(rows, cols);
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                cof.set(row, col, Util.signum(row + col) * submatrix(row, col).determinant());
+            }
+        }
+        return cof.transpose().scale(1 / det);
+    }
+
+    /**
+     * Deletes a Row and or Column from a Matrix.
+     * @param deleteRow row to delete or -1 if none should be deleted
+     * @param deleteCol column to delete or -1 if none should be deleted
+     * @return a smaller Matrix without specified row and column
+     */
+    public Matrix submatrix(int deleteRow, int deleteCol) {
+        if (deleteRow < -1 || deleteRow >= rows) {
+            throw new IllegalArgumentException("Illegal row to delete");
+        }
+        if (deleteCol < -1 || deleteCol >= cols) {
+            throw new IllegalArgumentException("Illegal column to delete");
+        }
+        Matrix r = new Matrix(deleteRow == -1 ? rows : rows - 1, deleteCol == -1 ? cols : cols - 1);
+        int vrow = 0;
+        for (int row = 0; row < r.rows; row++) {
+            int vcol = 0;
+            for (int col = 0; col < r.cols; col++) {
+                if (row == deleteRow) {
+                    vrow++;
+                }
+                if (col == deleteCol) {
+                    vcol++;
+                }
+                r.set(row, col, get(vrow, vcol));
+                vcol++;
+            }
+            vrow++;
+        }
+        return r;
+    }
+
+    /**
      * Sets a value of specific entry.
      * @param row row of entry
      * @param col column of entry
@@ -166,5 +238,18 @@ class Matrix {
      */
     public double get(int row, int col){
         return val[row][col];
+    }
+
+
+    @Override
+    public String toString() {
+        StringBuilder sb = new StringBuilder();
+        for (int row = 0; row < rows; row++) {
+            for (int col = 0; col < cols; col++) {
+                sb.append(Math.round(get(row, col) * 100.0) / 100.0).append(" ");
+            }
+            sb.append('\n');
+        }
+        return sb.toString();
     }
 }
