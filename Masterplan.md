@@ -11,7 +11,7 @@ Functionality requested by Jan
 
 ### Jan
 In Progress
-* TODO
+* Window and Graphics Engine
 
 Functionality requested by Kajus
 *
