@@ -7,8 +7,8 @@ class Vector extends Matrix{
   }
   public Vector(float a, float b){
     super(2,1);
-    val[0][0] = a;
-    val[1][0] = b;
+    set(0,0,a);
+    set(1,0,b);
   }
   
   public float dot(Vector b){
