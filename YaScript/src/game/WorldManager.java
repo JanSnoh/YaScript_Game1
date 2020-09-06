@@ -9,6 +9,9 @@ public class WorldManager {
     final private HashSet<WorldEntity> loadedEntities;
     final private HashSet<Chunk> loadedChunks;
 
+    /**
+     * Creates a World Manager
+     */
     public WorldManager() {
         loadedEntities = new HashSet<>();
         loadedChunks = new HashSet<>();
@@ -27,7 +30,7 @@ public class WorldManager {
 
     /**
      * Unloads the Chunk and removes itself from the loadedChunks and all newly unloaded Entities from the loadedEntities HashSet.
-     * NOTE: chunk.unloadsload() works through Side Effects and both returns a Set of newly unloaded Entities aswell as unload the Chunk.
+     * NOTE: chunk.unloadsload() works through Side Effects and both returns a Set of newly unloaded Entities as well as unload the Chunk.
      *
      * @param chunk to unload
      */
