@@ -11,11 +11,11 @@ class Vector extends Matrix{
     set(1,0,b);
   }
   
-  public float dot(Vector b){
+  public double dot(Vector b){
     return this.transpose().mult(b).get(0,0);
   }
   
-  public float get(int i){
+  public double get(int i){
     return super.get(i,1);
   }
   
