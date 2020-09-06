@@ -1,25 +1,25 @@
 package math;
-import java.lang.Math
+import java.lang.Math;
 
 class Matrix{
-  private final float[][] val;
+  private final double[][] val;
   public final int rows;
   public final int cols;
   
   public Matrix(int rows, int cols){
     this.rows = rows;
     this.cols = cols;
-    val = new float[rows][cols];
+    val = new double[rows][cols];
   }
   
-  public Matrix(float a, float b, float c, float d){
+  public Matrix(double d, double e, double f, double g){
     this.rows = 2;
     this.cols = 2;
-    val = new float[rows][cols];
-    val[0][0]=a;
-    val[0][1]=b;
-    val[1][0]=c;
-    val[1][1]=d;
+    val = new double[rows][cols];
+    val[0][0]=d;
+    val[0][1]=e;
+    val[1][0]=f;
+    val[1][1]=g;
   }
   public Matrix(int cols,float[] nums){
     if(nums.length%cols!=0){
@@ -27,7 +27,7 @@ class Matrix{
     }
     this.rows = nums.length/cols;
     this.cols = cols;
-    val = new float[rows][cols];
+    val = new double[rows][cols];
     for(int i = 0; i < nums.length; i++){
       val[i/cols][i%cols] = nums[i];
     }
@@ -55,12 +55,12 @@ class Matrix{
     return add(b.scale(-1.0));
   }
   
-  public Matrix scale(Float s){
+  public Matrix scale(double d){
     Matrix a = this;
     Matrix r = new Matrix(rows, cols);
     for(int row = 0; row < rows; row++){
       for(int col = 0; col < cols; col++){
-        r.val[row][col] = s * a.val[row][col];
+        r.val[row][col] = d * a.val[row][col];
       }
     }
     return r;
@@ -95,11 +95,11 @@ class Matrix{
     return r;
   }
   
-  void set(int row, int col, float val) {
-	  val[row][col] = val;
+  void set(int row, int col, double a) {
+	  val[row][col] = a;
   }
   
-  public float get(int row, int col){
+  public double get(int row, int col){
     return val[row][col]; 
   }
 }
