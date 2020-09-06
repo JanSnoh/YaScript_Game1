@@ -1,4 +1,4 @@
-import math;
+package math;
 
 class Vector extends Matrix{
   
