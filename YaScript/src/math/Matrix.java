@@ -64,7 +64,7 @@ public class Matrix {
      * @param angle rotation angle
      * @return rotation matrix
      */
-    public static Matrix rotationMatrix2d(float angle) {
+    public static Matrix rotationMatrix2d(double angle) {
         return new Matrix(Math.cos(angle),- Math.sin(angle),Math.sin(angle),Math.cos(angle));
     }
 
@@ -249,7 +249,7 @@ public class Matrix {
         StringBuilder sb = new StringBuilder();
         for (int row = 0; row < rows; row++) {
             for (int col = 0; col < cols; col++) {
-                if (get(row, col) >= 0) {
+                if ((Math.round(get(row, col) * 100.0) / 100.0)>= 0) {
                     sb.append(' ');
                 }
                 sb.append(Math.round(get(row, col) * 100.0) / 100.0).append(' ');
