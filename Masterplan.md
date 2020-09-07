@@ -6,6 +6,8 @@
 In Progress
 * Linear Algebra
 * Entity management
+* Create simple World Entities and a prototype Layer builder that fills some chunks with
+  these entities randomly
 
 Functionality requested by Jan
 *
