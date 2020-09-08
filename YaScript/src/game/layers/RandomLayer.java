@@ -1,5 +1,5 @@
-package game.entities;
-
+package game.layers;
+import game.entities.*;
 import game.Chunk;
 import game.Layer;
 import math.Vector;

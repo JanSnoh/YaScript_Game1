@@ -2,7 +2,7 @@ package game.entities;
 import game.WorldEntity;
 import math.*;
 
-class Circle extends WorldEntity {
+public class Circle extends WorldEntity {
   Vector center;
   double radius;
 
