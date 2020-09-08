@@ -1,10 +1,15 @@
 package game;
 
+import game.layers.Layer;
 import javafx.util.Pair;
 import math.Vector;
+import game.entities.*;
 
 import java.util.HashSet;
 
+/**
+ * Manages the game world, all things run through here.
+ */
 public class WorldManager {
     final private HashSet<WorldEntity> loadedEntities;
     final private HashSet<Chunk> loadedChunks;

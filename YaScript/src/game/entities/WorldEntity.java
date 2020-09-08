@@ -1,4 +1,4 @@
-package game;
+package game.entities;
 
 import math.Vector;
 
@@ -9,12 +9,12 @@ public abstract class WorldEntity {
 
     public abstract double getDist(Vector point);
 
-    boolean load(){
+    public boolean load(){
         linkCount++;
         return linkCount == 1;
     }
 
-    boolean unload(){
+    public boolean unload(){
         linkCount--;
         return linkCount == 0;
     }

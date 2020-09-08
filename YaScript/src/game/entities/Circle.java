@@ -1,18 +1,28 @@
 package game.entities;
-import game.WorldEntity;
-import math.*;
 
+import math.Vector;
+
+/**
+ * A simple circle nothing more.
+ */
 public class Circle extends WorldEntity {
-  Vector center;
-  double radius;
+    Vector center;
+    double radius;
 
-  public Circle(Vector center, double radius){
-  this.center = center;
-  this.radius = radius;
-  }
-  @Override
-  public double getDist(Vector point){
-    return point.sub(center).length() - radius;
-  }
+    /**
+     * Creates a Circle
+     *
+     * @param center duh
+     * @param radius duh
+     */
+    public Circle(Vector center, double radius) {
+        this.center = center;
+        this.radius = radius;
+    }
+
+    @Override
+    public double getDist(Vector point) {
+        return point.sub(center).length() - radius;
+    }
 
 }

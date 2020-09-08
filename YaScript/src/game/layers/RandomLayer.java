@@ -1,11 +1,15 @@
 package game.layers;
 import game.entities.*;
 import game.Chunk;
-import game.Layer;
 import math.Vector;
 
 public class RandomLayer extends Layer {
 
+    /**
+     * Creates a Layer where some chunks get one entity.
+     * @param width Chunks into x direction.
+     * @param height Chunks into y direction.
+     */
     public RandomLayer(int width, int height) {
         super(width, height);
         for (int x = 0; x < width; x++) {

@@ -2,6 +2,7 @@ package game;
 
 import java.util.Collection;
 import java.util.HashSet;
+import game.entities.WorldEntity;
 
 public class Chunk {
 
@@ -21,12 +22,19 @@ public class Chunk {
     public HashSet<WorldEntity> getEntities() {
         return myEntities;
     }
-    
+
+    public Chunk() {
+        myEntities = new HashSet<>();
+    }
+
     /** Entity adder
      * 
      * 
      */
     public void addEntity(WorldEntity entity) {
+        if (entity == null) {
+            throw new NullPointerException("Entity must not be null");
+        }
         myEntities.add(entity);
         if (loaded) {
             entity.load();
@@ -62,5 +70,10 @@ public class Chunk {
         }
         loaded = false;
         return trulyUnloaded;
+    }
+
+    public void setXY(int xpos, int ypos) {
+        this.xpos = xpos;
+        this.ypos = ypos;
     }
 }

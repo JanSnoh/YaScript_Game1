@@ -1,12 +1,14 @@
 package game.entities;
 
 
-import game.WorldEntity;
 import math.Matrix;
 import math.Vector;
 import math.Util;
 
 
+/**
+ *  Simple Wall.
+ */
 public class Wall extends WorldEntity {
 
     public Wall(Vector center, double length, double rotation) {
@@ -29,6 +31,19 @@ public class Wall extends WorldEntity {
 
     public Vector getCenter() {
         return center;
+    }
+
+    /**
+     * Calculates start and end of Wall
+     * @param point 0 for first point, 1 for second point
+     * @return location of point
+     */
+    public Vector get(int point) {
+        if (point < 0 || point > 1) {
+            throw new IllegalArgumentException("Not a valid point, must be 0 or 1, was: " + point);
+        }
+        Vector v = new Vector(Util.signum(point)*length / 2, 0);
+        return Matrix.rotationMatrix2d(rotation).vMult(v).add(center);
     }
 
     @Override

@@ -1,5 +1,6 @@
 package math;
 
+
 /**
  * Implementation of Matrix calculus.
  */
@@ -48,6 +49,9 @@ public class Matrix {
      * @param nums values
      */
     public Matrix(int cols, double[] nums) {
+        if (cols <= 0 || nums.length == 0) {
+            throw new IllegalArgumentException("Matrices have positive sizes");
+        }
         if (nums.length % cols != 0) {
             throw new IllegalArgumentException("This is not a full Matrix");
         }
@@ -64,24 +68,27 @@ public class Matrix {
      * @param angle rotation angle
      * @return rotation matrix
      */
-    public static Matrix rotationMatrix2d(double angle) {
+    public static  Matrix rotationMatrix2d(double angle) {
         return new Matrix(Math.cos(angle),- Math.sin(angle),Math.sin(angle),Math.cos(angle));
     }
 
     /**
      * Adds two matrizes element wise.
-     * @param b second matrix
+     * @param summand second matrix
      * @return result
      */
-    public Matrix add(Matrix b){
-        if(this.rows !=b.rows || this.cols != b.cols){
+    public Matrix add(Matrix summand){
+        if (summand == null) {
+            throw new NullPointerException("Matrix summand must exist");
+        }
+        if(this.rows !=summand.rows || this.cols != summand.cols){
             throw new IllegalArgumentException("Matrices must be of the same size");
         }
         Matrix a = this;
         Matrix r = new Matrix(rows, cols);
         for(int row = 0; row < rows; row++){
             for(int col = 0; col < cols; col++){
-                r.val[row][col] = a.val[row][col] + b.val[row][col];
+                r.val[row][col] = a.val[row][col] + summand.val[row][col];
             }
         }
         return r;
@@ -89,24 +96,27 @@ public class Matrix {
 
     /**
      * Subracts the second Matrix from the first one.
-     * @param b second matrix
+     * @param minuend second matrix
      * @return result
      */
-    public Matrix sub(Matrix b){
-        return add(b.scale(-1.0));
+    public Matrix sub(Matrix minuend){
+        if (minuend == null) {
+            throw new NullPointerException("minuend must not be null");
+        }
+        return add(minuend.scale(-1.0));
     }
 
     /**
      * Multiplies all values with a scalar.
-     * @param d scaling factor
+     * @param factor scaling factor
      * @return scaled matrix
      */
-    public Matrix scale(double d){
+    public Matrix scale(double factor){
         Matrix a = this;
         Matrix r = new Matrix(rows, cols);
         for(int row = 0; row < rows; row++){
             for(int col = 0; col < cols; col++){
-                r.val[row][col] = d * a.val[row][col];
+                r.val[row][col] = factor * a.val[row][col];
             }
         }
         return r;
@@ -114,20 +124,23 @@ public class Matrix {
 
     /**
      * Matrix cross multiplication.
-     * @param b second matrix
+     * @param multiplicand second matrix
      * @return cross product matrix
      */
-    public Matrix mult(Matrix b){
+    public Matrix mult(Matrix multiplicand){
+        if (multiplicand == null) {
+            throw new NullPointerException("multiplicand must not be null");
+        }
         Matrix a = this;
-        if(a.cols != b.rows){
+        if(a.cols != multiplicand.rows){
             throw new IllegalArgumentException("rows must match cols");
         }
-        Matrix r = new Matrix(a.rows,b.cols);
+        Matrix r = new Matrix(a.rows, multiplicand.cols);
         for(int row = 0; row < a.rows; row++){
-            for(int col = 0; col < b.cols; col++){
+            for(int col = 0; col < multiplicand.cols; col++){
                 float sum = 0;
                 for(int i = 0; i < a.cols; i++){
-                    sum +=a.val[row][i] * b.val[i][col];
+                    sum +=a.val[row][i] * multiplicand.val[i][col];
                 }
                 r.val[row][col] = sum;
             }
@@ -238,6 +251,9 @@ public class Matrix {
      * @param a new entry
      */
     void set(int row, int col, double a) {
+        if (row < 0 || row >= rows || col < 0 || col >= cols) {
+            throw new IndexOutOfBoundsException("Entry (" + row + ","+col + ") does not exist in this matrix");
+        }
         val[row][col] = a;
     }
 
@@ -248,9 +264,27 @@ public class Matrix {
      * @return value of entry
      */
     public double get(int row, int col){
+        if (row < 0 || row >= rows || col < 0 || col >= cols) {
+            throw new IndexOutOfBoundsException("Entry (" + row + ","+col + ") does not exist in this matrix");
+        }
         return val[row][col];
     }
 
+    /**
+     * Counts rows of matrix
+     * @return number of rows
+     */
+    public int getRows() {
+        return rows;
+    }
+
+    /**
+     * Counts columns of matrix.
+     * @return number of columns
+     */
+    public int getCols() {
+        return cols;
+    }
 
     @Override
     public String toString() {
