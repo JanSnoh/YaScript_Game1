@@ -224,6 +224,14 @@ public class Matrix {
     }
 
     /**
+     * Multiply matrix with vector
+     * @param vector vector to multiply with.
+     * @return resulting Vector
+     */
+    public Vector vMult(Vector vector){
+        return (Vector) mult(vector);
+    }
+    /**
      * Sets a value of specific entry.
      * @param row row of entry
      * @param col column of entry

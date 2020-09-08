@@ -8,6 +8,11 @@ import java.util.HashSet;
 public class WorldManager {
     final private HashSet<WorldEntity> loadedEntities;
     final private HashSet<Chunk> loadedChunks;
+    private Layer layer;
+
+    public void setLayer(Layer layer) {
+        this.layer = layer;
+    }
 
     /**
      * Creates a World Manager

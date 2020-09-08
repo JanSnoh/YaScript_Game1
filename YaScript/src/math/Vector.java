@@ -18,7 +18,7 @@ public class Vector extends Matrix{
      * @param a first entry
      * @param b second entry
      */
-    public Vector(float a, float b){
+    public Vector(double a, double b){
         super(2,1);
         set(0,0,a);
         set(1,0,b);
@@ -33,14 +33,7 @@ public class Vector extends Matrix{
         return this.transpose().mult(b).get(0,0);
     }
 
-    /**
-     * Multiply matrix with vector
-     * @param vector vector to multiply with.
-     * @return resulting Vector
-     */
-    public Vector vMult(Vector vector){
-        return (Vector) mult(vector);
-    }
+
 
     /**
      * Get a specific entry of the vector.
@@ -49,6 +42,41 @@ public class Vector extends Matrix{
      */
     public double get(int i){
         return super.get(i,1);
+    }
+
+    /**
+     * Calculate Lenght of Vector
+     * @return Length of Vector
+     */
+    public double length() {
+        return Math.sqrt(this.dot(this));
+    }
+
+    /**
+     * Vector addition
+     * @param b Vecotr to add
+     * @return sum of vectors
+     */
+    public Vector add(Vector b) {
+        return (Vector) super.add(b);
+    }
+
+    /**
+     * Vector subtraction
+     * @param b vector to subract
+     * @return difference of two vectors
+     */
+    public Vector sub(Vector b) {
+        return (Vector) super.sub(b);
+    }
+
+    /**
+     * Scales Vector
+     * @param s factor
+     * @return scaled Vector
+     */
+    public Vector scale(double s) {
+        return (Vector) super.scale(s);
     }
 
 }

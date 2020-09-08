@@ -1,7 +1,8 @@
-package game;
+package game.entities;
+import game.WorldEntity;
 import math.*;
 
-class Circle extends WorldEntity{
+class Circle extends WorldEntity {
   Vector center;
   double radius;
 
@@ -11,7 +12,7 @@ class Circle extends WorldEntity{
   }
   @Override
   public double getDist(Vector point){
-    return point.sub(center).lenght() - radius;
+    return point.sub(center).length() - radius;
   }
 
 }

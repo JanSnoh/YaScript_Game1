@@ -6,6 +6,7 @@ import java.util.HashSet;
 public class Chunk {
 
     private int xpos, ypos;
+    public static int width;
     private boolean loaded;
 
     /**
