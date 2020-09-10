@@ -8,7 +8,10 @@ import java.util.concurrent.TimeUnit;
 
 
 import game.Game;
+import game.WorldManager;
+import game.layers.RandomLayer;
 import math.Matrix;
+import math.Vector;
 import window.RenderEngine;
 import window.Window;
 /**
@@ -47,9 +50,17 @@ public class Main {
 		Game.setup();
 		final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(1);
 		scheduler.scheduleAtFixedRate(loop, 17, 17, TimeUnit.MILLISECONDS);
-		
-		
-		
+
+
+		/*
+		//This is an example of how to set up the test World. It was not tested yet.
+		WorldManager world = new WorldManager();
+		// Make a Layer with 9 chunks into x dir and 6 into y dir.
+		world.setLayer(new RandomLayer(9, 6));
+		world.loadAll();
+		Vector pointInSpace = new Vector(0, 0);
+		System.out.println(world.closestAndDist(pointInSpace).getValue());
+		*/
 
 		
 	}

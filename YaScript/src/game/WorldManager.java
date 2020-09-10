@@ -61,6 +61,7 @@ public class WorldManager {
 
     /**
      * Searches for the closest entity and its distance.
+     *
      * @param point to measure distance from
      * @return a pair containing the closest entity and its distance
      */
@@ -87,5 +88,7 @@ public class WorldManager {
             }
         }
     }
+
+
 
 }
