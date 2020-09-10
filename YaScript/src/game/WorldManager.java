@@ -77,4 +77,15 @@ public class WorldManager {
         return new Pair<>(closest, min);
     }
 
+    /**
+     * Loads all Chunks in the current Layer.
+     */
+    public void loadAll() {
+        for (int x = 0; x < layer.getWidth(); x++) {
+            for (int y = 0; y < layer.getHeight(); y++) {
+                load(layer.getChunk(x, y));
+            }
+        }
+    }
+
 }

@@ -8,20 +8,26 @@ import math.Vector;
  */
 public class Layer {
     private final Chunk[][] map;
+    private int width;
+    private int height;
 
     /**
      * Creates a new Layer with given dimensions.
-     * @param width number of chunks in x dir.
+     *
+     * @param width  number of chunks in x dir.
      * @param height number of cunks in y dir.
      */
     public Layer(int width, int height) {
         this.map = new Chunk[width][height];
+        this.width = width;
+        this.height = height;
     }
 
     /**
      * Places Chunk into Map
-     * @param x x position
-     * @param y y position
+     *
+     * @param x     x position
+     * @param y     y position
      * @param chunk Chunk to add at given position.
      */
     public void setChunk(int x, int y, Chunk chunk) {
@@ -31,6 +37,7 @@ public class Layer {
 
     /**
      * Gets chunk at given position.
+     *
      * @param x x position;
      * @param y y position;
      * @return chunk at given position.
@@ -40,7 +47,23 @@ public class Layer {
     }
 
     /**
+     * Number of chunks into x direction.
+     * @return number of chunks into x direction.
+     */
+    public int getWidth() {
+        return width;
+    }
+
+    /**
+     * Number of chunks into y direction.
+     * @return number of chunks into y direction.
+     */
+    public int getHeight() {
+        return height;
+    }
+    /**
      * Determines which Chunk is at given coordinates
+     *
      * @param position position to check for Chunk
      * @return Chunk at position
      */
