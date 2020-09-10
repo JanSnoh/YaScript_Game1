@@ -1,6 +1,8 @@
 package game.entities;
 
 
+import java.awt.Color;
+
 import math.Matrix;
 import math.Vector;
 import math.Util;
@@ -21,6 +23,8 @@ public class Wall extends WorldEntity {
     private double length;
     private double rotation;
 
+    
+    
     public double getRotation() {
         return rotation;
     }
@@ -58,4 +62,10 @@ public class Wall extends WorldEntity {
         }
 
     }
+
+	@Override
+	public Color getColor() {
+		
+		return Color.CYAN;
+	}
 }

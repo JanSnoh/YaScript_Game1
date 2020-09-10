@@ -2,6 +2,8 @@ package window;
 
 import javax.swing.*;
 
+import game.WorldManager;
+
 public class Window extends JFrame{
 	//TODO Generate a Window and be able to draw stuff on it.
 	JPanel panel;
@@ -10,17 +12,21 @@ public class Window extends JFrame{
 		JButton b = new JButton("test");
 		b.setBounds(40, 40, 60, 50);
 		
-		panel = new VisionPanel(x,y);
-		this.add(panel);
+
 		
 		
 		setSize(x, y);
 		setLayout(null);
-		setDefaultCloseOperation(DO_NOTHING_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
 		setVisible(true);
 	}
-	
-	
+	public void putVision(WorldManager wm) {
+		panel = new RenderEngine(getWidth(),getHeight(),wm);
+		this.add(panel);
+	}
+	public void rep() {
+		panel.repaint();
+	}
 	
 	
 	

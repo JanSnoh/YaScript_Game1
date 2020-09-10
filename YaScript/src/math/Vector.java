@@ -58,7 +58,7 @@ public class Vector extends Matrix{
      * @return sum of vectors
      */
     public Vector add(Vector b) {
-        return (Vector) super.add(b);
+        return super.add(b).toVector();
     }
 
     /**

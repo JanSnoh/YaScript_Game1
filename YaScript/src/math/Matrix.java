@@ -1,5 +1,6 @@
 package math;
 
+import java.io.InvalidObjectException;
 
 /**
  * Implementation of Matrix calculus.
@@ -296,8 +297,21 @@ public class Matrix {
                 }
                 sb.append(Math.round(get(row, col) * 100.0) / 100.0).append(' ');
             }
-            sb.append('\n');
+            //sb.append('\n');
         }
         return sb.toString();
     }
+    
+    public Vector toVector() {
+    	if(cols!=1) {
+            throw new IndexOutOfBoundsException("Entry (" +  "," + ") does not exist in this matrix");
+    	}
+    	else if(rows==2) return new Vector(val[0][0],val[1][0]);
+    	
+    	Vector v = new Vector(rows);
+    	for(int i=0;i<rows;i++) v.set(i, 0, val[i][0]);
+    	return v;
+    	
+    }
+    
 }

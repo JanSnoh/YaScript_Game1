@@ -1,5 +1,7 @@
 package game.entities;
 
+import java.awt.Color;
+
 import math.Vector;
 
 /**
@@ -24,5 +26,11 @@ public class Circle extends WorldEntity {
     public double getDist(Vector point) {
         return point.sub(center).length() - radius;
     }
+
+	@Override
+	public Color getColor() {
+		// TODO Auto-generated method stub
+		return Color.GREEN;
+	}
 
 }

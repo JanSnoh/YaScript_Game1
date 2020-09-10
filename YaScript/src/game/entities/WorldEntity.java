@@ -1,5 +1,7 @@
 package game.entities;
 
+import java.awt.Color;
+
 import math.Vector;
 
 public abstract class WorldEntity {
@@ -8,6 +10,7 @@ public abstract class WorldEntity {
     private int linkCount;
 
     public abstract double getDist(Vector point);
+    public abstract Color getColor();
 
     public boolean load(){
         linkCount++;

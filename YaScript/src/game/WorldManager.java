@@ -64,7 +64,7 @@ public class WorldManager {
      * @param point to measure distance from
      * @return a pair containing the closest entity and its distance
      */
-    Pair<WorldEntity, Double> closestAndDist(Vector point) {
+    public Pair<WorldEntity, Double> closestAndDist(Vector point) {
         WorldEntity closest = null;
         double min = Double.MAX_VALUE;
         for (WorldEntity we : loadedEntities) {
