@@ -44,7 +44,7 @@ public class Main {
 		
 		
 		final Runnable loop = new Runnable() {
-			public void run() {Game.loop();win.rep();}
+			public void run() {Game.loop();}
 		};
 		
 		Game.setup();
@@ -52,16 +52,16 @@ public class Main {
 		scheduler.scheduleAtFixedRate(loop, 17, 17, TimeUnit.MILLISECONDS);
 
 
-		/*
+		
 		//This is an example of how to set up the test World. It was not tested yet.
 		WorldManager world = new WorldManager();
-		// Make a Layer with 9 chunks into x dir and 6 into y dir.
+		win.putVision(world);
+//		 Make a Layer with 9 chunks into x dir and 6 into y dir.
 		world.setLayer(new RandomLayer(9, 6));
 		world.loadAll();
 		Vector pointInSpace = new Vector(0, 0);
 		System.out.println(world.closestAndDist(pointInSpace).getValue());
-		*/
-
+		
 		
 	}
 

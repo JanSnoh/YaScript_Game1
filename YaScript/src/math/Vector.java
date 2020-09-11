@@ -41,7 +41,7 @@ public class Vector extends Matrix{
      * @return value of entry
      */
     public double get(int i){
-        return super.get(i,1);
+        return super.get(i,0);
     }
 
     /**
@@ -67,7 +67,7 @@ public class Vector extends Matrix{
      * @return difference of two vectors
      */
     public Vector sub(Vector b) {
-        return (Vector) super.sub(b);
+        return super.sub(b).toVector();
     }
 
     /**
@@ -76,7 +76,7 @@ public class Vector extends Matrix{
      * @return scaled Vector
      */
     public Vector scale(double s) {
-        return (Vector) super.scale(s);
+        return super.scale(s).toVector();
     }
 
 }

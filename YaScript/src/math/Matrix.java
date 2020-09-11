@@ -243,7 +243,7 @@ public class Matrix {
      * @return resulting Vector
      */
     public Vector vMult(Vector vector){
-        return (Vector) mult(vector);
+        return mult(vector).toVector();
     }
     /**
      * Sets a value of specific entry.

@@ -23,6 +23,7 @@ public class Window extends JFrame{
 	public void putVision(WorldManager wm) {
 		panel = new RenderEngine(getWidth(),getHeight(),wm);
 		this.add(panel);
+		panel.setVisible(true);
 	}
 	public void rep() {
 		panel.repaint();
