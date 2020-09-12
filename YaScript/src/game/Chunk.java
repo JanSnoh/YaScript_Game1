@@ -7,7 +7,7 @@ import game.entities.WorldEntity;
 public class Chunk {
 
     private int xpos, ypos;
-    public static int width = 1;
+    public static int width = 100;
     private boolean loaded;
 
     /**
