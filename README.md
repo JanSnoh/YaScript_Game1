@@ -5,4 +5,7 @@ Game with the codename of YaScript.
 
 
 TODO
-getPix ~von einzelnen Pixeln auf Pixel-Spalten ändern~. Basiere die Funktion auf closestAndDist.
+EFFICIENCY. WE NEEED MORE FRAMES.
+Maybe multithreading
+Maybe OpenGL
+Maybe just draw textures instead of whatever tf we were doing.
