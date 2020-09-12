@@ -25,8 +25,10 @@ public class Main {
 	public static void main(String[] args) {
 		actualMain();
 		
-		
+
 		// DEBUG.  DO NOT UNCOMMENT IF YOU ARE NOT JAN OR KNOW WHAT YOU ARE DOING. YES THE IMPLICATION IS THAT JAN DOES NOT KNOW WHAT HE IS DOING
+//		WorldManager world = new WorldManager();
+//		RenderEngine rend = new RenderEngine(30, 30, world);
 //		for(int i=0;i<=30;i++) {
 //			for(int j=0;j<=30;j++) {
 //				System.out.println(rend.debug(i, j).toString());
@@ -40,7 +42,7 @@ public class Main {
 	}	
 	private static void actualMain() {
 		
-		Window win = new Window(1000,700);
+		Window win = new Window(1400,700);
 		
 		
 		final Runnable loop = new Runnable() {
