@@ -29,6 +29,11 @@ public class Matrix {
         vals = new double[rows * cols];
     }
 
+    public static Matrix rotationMatrix2d(double angle){
+        double[] vals = {};
+        return new Matrix(2, vals);
+    }
+
     public void add(Matrix summand) {
         if (!(rows == summand.rows && cols == summand.cols)) {
             throw new IllegalArgumentException("Matrix dimensions not matching");
